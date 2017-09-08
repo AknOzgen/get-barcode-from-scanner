@@ -28,10 +28,13 @@
 
         input.onkeyup = e => {
             if (readState != true) {
-                input.value = e.key;
+                if (e.key.length < 2)
+                    input.value = e.key;
+                else
+                    input.value = "";
             }
 
-            if (e.key != "Enter") {
+            if (e.key != "ArrowDown") {
                 readState = true;
             } else {
                 readState = false;
